@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Clara Luiza Pestana · 15 anos — 24.10.26</title>
+<meta name="description" content="Convite para os 15 anos de Clara Luiza Pestana — 24 de outubro de 2026, 21h, Cerimonial Villa Prime.">
+<meta name="theme-color" content="#B01E69">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500&display=swap">
+<style>
+:root{
+  --hero-side:#B01E69; --hero-band:#D6337D;
+  --bg:#FFF4F9; --surface:#FFFFFF; --blush:#FFE2EF; --photo:#FFD3E6;
+  --ink:#3A1428; --muted:#7A4460; --accent:#C6186C; --accent-ink:#FFFFFF;
+  --script:'Pinyon Script','Snell Roundhand','Apple Chancery',cursive;
+  --serif:'Bodoni Moda',Didot,'Bodoni 72',Georgia,serif;
+  --sans:'Jost','Avenir Next','Segoe UI',system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#260C1A; --surface:#381326; --blush:#4A1A33; --photo:#521D39;
+    --ink:#FFEAF4; --muted:#F3B8D4; --accent:#FF8DC4; --accent-ink:#3A0A20;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#260C1A; --surface:#381326; --blush:#4A1A33; --photo:#521D39;
+  --ink:#FFEAF4; --muted:#F3B8D4; --accent:#FF8DC4; --accent-ink:#3A0A20;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.55;overflow:hidden}
+body.gifts-open{overflow:auto}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.hero a:focus-visible,.hero button:focus-visible{outline-color:#fff}
+[hidden]{display:none !important}
+#convite{height:100%}
+
+/* ================= Trilho horizontal ================= */
+.track{height:100%;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.track::-webkit-scrollbar{display:none}
+.slide{position:relative;flex:0 0 100%;width:100%;height:100%;scroll-snap-align:start;scroll-snap-stop:always;overflow-y:auto;overflow-x:hidden;display:flex;flex-direction:column;align-items:center;
+  padding:calc(40px + env(safe-area-inset-top,0px)) 20px calc(92px + env(safe-area-inset-bottom,0px))}
+.inner{margin:auto 0;width:100%;max-width:460px;display:flex;flex-direction:column;gap:22px}
+
+/* Setas e pontos */
+.nav-arrow{position:fixed;z-index:20;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.9);color:var(--accent);display:grid;place-items:center;cursor:pointer;box-shadow:0 2px 10px rgba(120,10,60,.18)}
+.nav-arrow.prev{left:max(10px, env(safe-area-inset-left,0px))}
+.nav-arrow.next{right:max(10px, env(safe-area-inset-right,0px))}
+@media (max-width:599px){.nav-arrow{top:auto;bottom:calc(18px + env(safe-area-inset-bottom,0px));transform:none;width:40px;height:40px}}
+.dots{position:fixed;z-index:20;left:50%;transform:translateX(-50%);bottom:calc(28px + env(safe-area-inset-bottom,0px));display:flex;gap:4px}
+.dots button{width:18px;height:18px;padding:0;border:0;background:transparent;cursor:pointer;display:grid;place-items:center}
+.dots button::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);opacity:.3;transition:width .2s ease,opacity .2s ease}
+.dots button[aria-current]::before{width:18px;border-radius:4px;opacity:1}
+body.on-hero .dots button::before{background:#fff}
+body.gifts-open .nav-arrow,body.gifts-open .dots{display:none}
+
+/* ================= Abertura / encerramento ================= */
+.hero{background:var(--hero-side);color:#fff;padding:0;justify-content:center}
+.hero .side{position:absolute;top:0;height:100%;width:max(24%, calc((100% - min(68%,420px)) / 2 + 70px))}
+.hero .side.left{left:0}
+.hero .side.right{right:0}
+.band{position:relative;z-index:1;width:68%;max-width:420px;height:100%;background:var(--hero-band);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(10px,2.2vh,22px);
+  padding:calc(30px + env(safe-area-inset-top,0px)) 14px calc(90px + env(safe-area-inset-bottom,0px));text-align:center}
+.fifteen{font-family:var(--serif);font-size:clamp(3rem,8.5vh,4.6rem);line-height:1;display:flex;align-items:flex-start;gap:4px}
+.fifteen small{font-size:.28em;letter-spacing:.2em;margin-top:.55em;font-family:var(--sans);font-weight:400}
+.monogram{width:clamp(120px,24vh,190px);height:auto;display:block;color:#fff}
+.hero h1{margin:0;display:flex;flex-direction:column;align-items:center;gap:6px;font-weight:400}
+.hero h1 .first{font-family:var(--serif);font-size:clamp(1.9rem,4.8vh,2.6rem);letter-spacing:.32em;margin-right:-.32em;line-height:1}
+.hero h1 .last{font-family:var(--serif);font-size:clamp(.75rem,1.8vh,.95rem);letter-spacing:.34em;margin-right:-.34em}
+.bfly{width:30px;height:auto;color:#fff}
+.save{border:1px solid rgba(255,255,255,.9);padding:14px 22px 12px;font-family:var(--serif);line-height:1.15}
+.save .words{font-size:clamp(1.2rem,3.2vh,1.7rem);letter-spacing:.42em;margin-right:-.42em}
+.save hr{border:0;border-top:1px solid rgba(255,255,255,.7);margin:10px 0 8px}
+.save .date{font-size:clamp(1.2rem,3.1vh,1.65rem);letter-spacing:.12em}
+.swipe-hint{display:inline-flex;align-items:center;gap:6px;font-size:.85rem;letter-spacing:.08em;opacity:.95;background:transparent;border:1px solid rgba(255,255,255,.7);color:#fff;border-radius:999px;padding:7px 14px;cursor:pointer;font-family:var(--sans)}
+@media (prefers-reduced-motion: no-preference){
+  .swipe-hint svg{animation:nudge 1.6s ease-in-out infinite}
+  @keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+  .hero.first .band > *{animation:rise .9s ease-out both}
+  .hero.first .band > *:nth-child(2){animation-delay:.1s}
+  .hero.first .band > *:nth-child(3){animation-delay:.2s}
+  .hero.first .band > *:nth-child(4){animation-delay:.3s}
+  .hero.first .band > *:nth-child(5){animation-delay:.4s}
+  .hero.first .band > *:nth-child(6){animation-delay:.6s}
+  @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+}
+.closing h2{margin:0;font-family:var(--script);font-weight:400;font-size:clamp(3rem,13vw,3.8rem);line-height:1.1}
+.closing .monogram{width:100px}
+.closing .sig{font-family:var(--serif);font-size:.85rem;letter-spacing:.3em;margin-right:-.3em}
+.closing p{margin:0;max-width:26ch;font-size:1rem}
+.btn.light{background:#fff;color:var(--hero-side)}
+
+/* ================= Blocos ================= */
+.script-title{margin:0;text-align:center;font-family:var(--script);font-weight:400;font-size:2.8rem;line-height:1.05;color:var(--accent)}
+.intro{text-align:center}
+.verse{font-family:var(--serif);font-style:italic;font-size:1rem;line-height:1.6;color:var(--muted);margin:0}
+.rule{width:36px;height:1px;background:var(--accent);margin:18px auto}
+.lead{font-size:1.12rem;line-height:1.6;margin:0}
+.arch-wrap{position:relative;width:min(100%,280px, 44vh);aspect-ratio:318/436;margin:0 auto}
+.arch-line{position:absolute;inset:0;border:1px solid var(--accent);border-radius:999px 999px 0 0}
+.arch-photo{position:absolute;inset:12px 11px;border-radius:999px 999px 0 0;background:var(--photo);overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--muted);font-size:.95rem;text-align:center;padding:10px}
+.arch-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.fact{background:var(--surface);border-radius:18px;padding:18px 6px;display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center}
+.fact svg{margin-bottom:4px}
+.fact .k{font-size:.78rem;color:var(--muted);font-weight:400}
+.fact .v{font-family:var(--serif);font-size:1.35rem;line-height:1.15}
+.fact .s{font-size:.8rem;color:var(--muted)}
+.countdown{background:var(--accent);color:var(--accent-ink);border-radius:28px;padding:28px 16px 24px;display:flex;flex-direction:column;align-items:center;gap:16px}
+.countdown h2{margin:0;font-family:var(--script);font-weight:400;font-size:2.3rem;line-height:1}
+.units{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;width:100%}
+.unit{border:1px solid currentColor;border-radius:16px;padding:14px 2px 10px;display:flex;flex-direction:column;align-items:center}
+.unit .n{font-family:var(--serif);font-size:clamp(1.8rem,8vw,2.3rem);line-height:1;font-variant-numeric:tabular-nums}
+.unit .l{font-size:.78rem;margin-top:6px}
+.countdown .done{font-family:var(--serif);font-style:italic;font-size:1.3rem;margin:0}
+
+.cal-year{margin:-14px 0 0;text-align:center;font-size:.85rem;letter-spacing:.4em;color:var(--muted)}
+.calendar{background:var(--surface);border-radius:22px;padding:18px 14px}
+.cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));row-gap:4px;text-align:center}
+.cal-grid .wd{font-size:.75rem;color:var(--muted);font-weight:500;padding-bottom:6px}
+.cal-grid .d{height:38px;display:grid;place-items:center;font-size:.98rem;font-weight:400}
+.cal-grid .d.party span{width:36px;height:36px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-weight:500}
+.cal-note{margin:0;text-align:center;font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--muted)}
+
+.place{background:var(--blush);border-radius:26px;padding:34px 24px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px}
+.place .pin{width:56px;height:56px;border-radius:50%;background:var(--surface);display:grid;place-items:center;margin-bottom:8px}
+.place h2{margin:0;font-family:var(--serif);font-weight:400;font-size:1.7rem;line-height:1.2}
+.place p{margin:0;font-size:1.05rem}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 28px;border-radius:999px;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-family:var(--sans);font-weight:500;font-size:1rem;border:0;cursor:pointer;transition:transform .15s ease,filter .15s ease}
+.btn:hover{filter:brightness(1.08)}
+.btn:active{transform:scale(.98)}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+.place .btn{margin-top:14px}
+
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.gallery .ph{aspect-ratio:3/4;max-height:38vh;width:100%;background:var(--photo);display:grid;place-items:center;color:var(--muted);font-size:.9rem;overflow:hidden;position:relative}
+.gallery .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.gallery .ph:first-child{border-radius:999px 999px 16px 16px}
+.gallery .ph:last-child{border-radius:16px 16px 999px 999px}
+
+.card{background:var(--surface);border-radius:26px;padding:28px 22px;text-align:center;display:flex;flex-direction:column;align-items:center}
+.card p{margin:8px auto 0;max-width:32ch;font-size:1.02rem}
+.card .btn{margin-top:18px}
+.dress h2{margin:4px 0 0;font-family:var(--script);font-weight:400;font-size:2.6rem;line-height:1.1;color:var(--accent)}
+.dress .attire{margin-top:6px;font-family:var(--serif);font-size:1.25rem;color:var(--ink)}
+.swatches{list-style:none;margin:22px auto 0;padding:0;display:flex;justify-content:center;flex-wrap:wrap;gap:16px 6px;max-width:290px}
+.swatches li{width:66px;display:flex;flex-direction:column;align-items:center;gap:8px}
+.swatches .dot{position:relative;width:46px;height:46px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08);overflow:hidden}
+.swatches.off .dot::after{content:"";position:absolute;left:50%;top:-4px;width:2px;height:54px;background:#B3121F;transform:translateX(-50%) rotate(-45deg)}
+.swatches .name{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:center;line-height:1.25}
+.dress .welcome{margin-top:22px;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:#4E8A5E;font-weight:500}
+.card h3{margin:10px 0 0;font-family:var(--serif);font-weight:400;font-size:1.5rem}
+.ic{width:52px;height:52px;border-radius:50%;background:var(--blush);display:grid;place-items:center}
+.rsvp{border:1px solid var(--accent);border-radius:26px;padding:30px 22px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px}
+.rsvp h2{margin:0;font-family:var(--script);font-weight:400;font-size:2.5rem;line-height:1.1;color:var(--accent)}
+.rsvp p{margin:0;font-size:1.02rem}
+.rsvp .btn{margin-top:8px;width:100%;max-width:300px}
+
+/* ================= Página de presentes ================= */
+.gifts-page{min-height:100%;background:var(--bg)}
+.gifts-top{position:relative;overflow:hidden;background:var(--hero-side);color:#fff;display:flex;justify-content:center}
+.gifts-top .side{position:absolute;top:0;height:100%;width:auto;aspect-ratio:200/320}
+.gifts-top .side.left{left:0}
+.gifts-top .side.right{right:0}
+.gifts-top .band{height:auto;padding:78px 16px 38px;gap:10px;max-width:520px}
+.gifts-top h1{margin:0;font-family:var(--script);font-weight:400;font-size:clamp(2.6rem,11vw,3.4rem);line-height:1.05}
+.gifts-top p{margin:0;font-size:1rem;max-width:30ch}
+.back{position:absolute;z-index:3;top:calc(14px + env(safe-area-inset-top,0px));left:14px;display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.95);color:#C6186C;text-decoration:none;border-radius:999px;padding:8px 14px;font-size:.9rem;font-weight:500}
+.gifts-body{max-width:560px;margin:0 auto;padding:34px 20px calc(56px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:30px}
+.gifts-body h2{margin:0 0 14px;font-family:var(--serif);font-weight:400;font-size:1.45rem;text-align:center}
+.sizes{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.sizes li{background:var(--surface);border-radius:18px;padding:16px 4px 14px;display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center}
+.sizes .item{font-size:.88rem;color:var(--muted);font-weight:400}
+.sizes .size{font-family:var(--serif);font-size:1.8rem;line-height:1.1}
+.brands{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.brands li{background:var(--surface);border:1px solid var(--accent);border-radius:999px;padding:8px 16px;font-size:1rem;font-weight:400}
+.note{background:var(--blush);border-radius:22px;padding:22px;text-align:center;font-family:var(--serif);font-style:italic;font-size:1.05rem;line-height:1.6}
+.gifts-body .btn{align-self:center}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+</style>
+</head>
+<body class="on-hero">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="bfly" viewBox="0 0 34 28">
+      <path d="M17 9 C11 -1 1 3 6 12 C0 18 8 26 17 17 C26 26 34 18 28 12 C33 3 23 -1 17 9Z" fill="none" stroke="currentColor" stroke-width="1.1"/>
+      <path d="M17 9 V22 M17 9 L13 3 M17 9 L21 3 M8 7 Q12 10 14 13 M26 7 Q22 10 20 13" fill="none" stroke="currentColor" stroke-width=".9" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="clp" viewBox="0 0 200 210">
+      <text x="6" y="150" font-family="'Bodoni Moda',Didot,Georgia,serif" font-size="168" fill="currentColor">C</text>
+      <text x="74" y="168" font-family="'Bodoni Moda',Didot,Georgia,serif" font-size="124" fill="currentColor">L</text>
+      <text x="100" y="138" font-family="'Bodoni Moda',Didot,Georgia,serif" font-size="140" fill="currentColor">P</text>
+    </symbol>
+  </defs>
+</svg>
+
+<div id="convite">
+<main class="track" id="track" tabindex="-1">
+
+  <!-- 1 · Abertura -->
+  <section class="slide hero first" aria-label="Abertura">
+    <svg class="side left" viewBox="0 0 200 800" preserveAspectRatio="xMinYMid slice" aria-hidden="true" data-flowers='[[60,110,150,1],[10,470,170,2],[80,800,140,3]]'></svg>
+    <svg class="side right" viewBox="0 0 200 800" preserveAspectRatio="xMaxYMid slice" aria-hidden="true" data-flowers='[[150,50,150,4],[200,400,165,5],[130,750,160,6]]'></svg>
+    <div class="band">
+      <div class="fifteen" aria-label="15 anos">15<small>anos</small></div>
+      <svg class="monogram" viewBox="0 0 200 210" role="img" aria-label="Monograma CLP"><use href="#clp"/></svg>
+      <h1><span class="first">CLARA</span><span class="last">LUIZA PESTANA</span></h1>
+      <svg class="bfly" viewBox="0 0 34 28" aria-hidden="true"><use href="#bfly"/></svg>
+      <div class="save">
+        <div class="words">SAVE<br>THE<br>DATE</div>
+        <hr>
+        <div class="date">24.10.26</div>
+      </div>
+      <button class="swipe-hint" type="button" id="start">Deslize para abrir
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- 2 · Convite -->
+  <section class="slide" aria-label="Convite">
+    <div class="inner intro">
+      <div class="arch-wrap">
+        <div class="arch-line"></div>
+        <div class="arch-photo">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h3l2-3h8l2 3h3v11H3z"/><circle cx="12" cy="13" r="4"/></svg>
+          <span>[Foto principal da Clara]</span>
+        </div>
+      </div>
+      <div>
+        <p class="verse">"Guarda-me, Senhor, como a menina dos olhos"<br>Salmo 17:8</p>
+        <div class="rule"></div>
+        <p class="lead">Com muita alegria, convido você para celebrar comigo os meus 15 anos em uma noite inesquecível.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · Quando -->
+  <section class="slide" aria-label="Data e contagem">
+    <div class="inner">
+      <h2 class="script-title">Quando</h2>
+      <div class="facts">
+        <div class="fact">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+          <span class="k">Data</span><span class="v">24.10</span><span class="s">Sábado</span>
+        </div>
+        <div class="fact">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <span class="k">Horário</span><span class="v">21h</span><span class="s">da noite</span>
+        </div>
+        <div class="fact">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span class="k">Local</span><span class="v">Villa Prime</span><span class="s">Cerimonial</span>
+        </div>
+      </div>
+      <div class="countdown" aria-labelledby="cd-title">
+        <h2 id="cd-title">Faltam</h2>
+        <div class="units" id="cd-units">
+          <div class="unit"><span class="n" id="cd-d">--</span><span class="l">dias</span></div>
+          <div class="unit"><span class="n" id="cd-h">--</span><span class="l">horas</span></div>
+          <div class="unit"><span class="n" id="cd-m">--</span><span class="l">min</span></div>
+          <div class="unit"><span class="n" id="cd-s">--</span><span class="l">seg</span></div>
+        </div>
+        <p class="done" id="cd-done" hidden>Chegou o grande dia!</p>
+        <p class="sr-only" id="cd-sr" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · Calendário -->
+  <section class="slide" aria-label="Calendário">
+    <div class="inner">
+      <h2 class="script-title">Outubro</h2>
+      <p class="cal-year">2026</p>
+      <div class="calendar">
+        <div class="cal-grid" id="cal-grid" aria-label="Calendário de outubro de 2026, dia 24 destacado">
+          <span class="wd">D</span><span class="wd">S</span><span class="wd">T</span><span class="wd">Q</span><span class="wd">Q</span><span class="wd">S</span><span class="wd">S</span>
+        </div>
+      </div>
+      <p class="cal-note">Sábado, 24 de outubro, às 21h</p>
+    </div>
+  </section>
+
+  <!-- 5 · Local -->
+  <section class="slide" aria-label="Local">
+    <div class="inner">
+      <h2 class="script-title">Onde</h2>
+      <div class="place">
+        <div class="pin"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <h2>Cerimonial Villa Prime</h2>
+        <p>Av. Beira-mar, 367</p>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Cerimonial+Villa+Prime+Av.+Beira-mar+367" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l18-8-8 18-2-8z"/></svg>
+          Como chegar
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 · Momentos -->
+  <section class="slide" aria-label="Momentos">
+    <div class="inner">
+      <div class="gallery">
+        <div class="ph">[Foto 2]</div>
+        <div class="ph">[Foto 3]</div>
+      </div>
+      <div class="card">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><circle cx="12" cy="13.5" r="3.5"/><path d="M8 7l2-3h4l2 3"/></svg></div>
+        <h3>Momentos</h3>
+        <p>Tire muitas fotos e me ajude a eternizar esta noite. Use [#HASHTAG] nas suas publicações.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 · Dress code -->
+  <section class="slide" aria-label="Dress code">
+    <div class="inner">
+    <div class="card dress" aria-labelledby="dress-title">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3l3 3 3-3 5 3-2 4-2-1v12H8V9L6 10 4 6z"/></svg>
+      <h2 id="dress-title">Dress code</h2>
+      <p class="attire">Esporte fino</p>
+
+      <p>Os tons de rosa são exclusivos da noite da Clara. Pedimos, com carinho, que os convidados evitem estas cores:</p>
+      <ul class="swatches off" aria-label="Cores que os convidados devem evitar">
+        <li><span class="dot" style="background:#FFACD4"></span><span class="name">Rosa bebê</span></li>
+        <li><span class="dot" style="background:#FF8DC4"></span><span class="name">Rosa claro</span></li>
+        <li><span class="dot" style="background:#F67BB6"></span><span class="name">Rosa chiclete</span></li>
+        <li><span class="dot" style="background:#F163A8"></span><span class="name">Rosa médio</span></li>
+        <li><span class="dot" style="background:#ED4D9A"></span><span class="name">Pink</span></li>
+        <li><span class="dot" style="background:#E9328B"></span><span class="name">Pink intenso</span></li>
+        <li><span class="dot" style="background:#C6186C"></span><span class="name">Magenta</span></li>
+      </ul>
+      <p class="welcome">Todas as outras cores são bem-vindas ✦</p>
+    </div>
+    </div>
+  </section>
+
+  <!-- 8 · Presentes e confirmação -->
+  <section class="slide" aria-label="Presentes e confirmação">
+    <div class="inner">
+      <div class="card">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="9" width="18" height="12"/><path d="M2 9h20M12 9v12"/><path d="M12 9C9 3 5 5 7.5 8.5M12 9c3-6 7-4 4.5-.5"/></svg></div>
+        <h3>Presentes</h3>
+        <p>Sua presença é o meu maior presente. Se quiser me presentear, deixei algumas sugestões.</p>
+        <a class="btn ghost" href="#presentes">Ver sugestões de presente</a>
+      </div>
+      <div class="rsvp" aria-labelledby="rsvp-title">
+        <h2 id="rsvp-title">Confirme sua presença</h2>
+        <p>Por favor, confirme até <strong>10/10/2026</strong>.</p>
+        <a class="btn" href="https://forms.gle/vgskUqJnVFgaKHqY8" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-4 3-7 7-7s7 3 7 7"/><path d="M16 12l2 2 4-4"/></svg>
+          Confirmar presença
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9 · Encerramento -->
+  <section class="slide hero closing" aria-label="Encerramento">
+    <svg class="side left" viewBox="0 0 200 800" preserveAspectRatio="xMinYMid slice" aria-hidden="true" data-flowers='[[40,90,150,7],[0,430,165,8],[70,780,150,9]]'></svg>
+    <svg class="side right" viewBox="0 0 200 800" preserveAspectRatio="xMaxYMid slice" aria-hidden="true" data-flowers='[[170,120,150,10],[210,470,160,11],[140,800,145,12]]'></svg>
+    <div class="band">
+      <svg class="bfly" viewBox="0 0 34 28" aria-hidden="true"><use href="#bfly"/></svg>
+      <h2>Espero você!</h2>
+      <svg class="monogram" viewBox="0 0 200 210" role="img" aria-label="Monograma CLP"><use href="#clp"/></svg>
+      <div class="sig">CLARA LUIZA PESTANA</div>
+      <p>24.10.26 · 21h</p>
+      <a class="btn light" href="https://forms.gle/vgskUqJnVFgaKHqY8" target="_blank" rel="noopener">Confirmar presença</a>
+    </div>
+  </section>
+
+</main>
+
+<button class="nav-arrow prev" id="prev" type="button" aria-label="Anterior" hidden>
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+</button>
+<button class="nav-arrow next" id="next" type="button" aria-label="Próximo">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+</button>
+<nav class="dots" id="dots" aria-label="Partes do convite"></nav>
+</div>
+
+<!-- ======================== SUGESTÕES DE PRESENTE ======================== -->
+<div id="presentes-page" class="gifts-page" hidden>
+  <header class="gifts-top">
+    <a class="back" href="#">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+      Voltar ao convite
+    </a>
+    <svg class="side left" viewBox="0 0 200 320" preserveAspectRatio="xMinYMid slice" aria-hidden="true"
+         data-flowers='[[0,60,125,11],[10,330,120,12]]'></svg>
+    <svg class="side right" viewBox="0 0 200 320" preserveAspectRatio="xMaxYMid slice" aria-hidden="true"
+         data-flowers='[[200,40,120,13],[195,300,130,14]]'></svg>
+    <div class="band">
+      <svg class="bfly" width="30" viewBox="0 0 34 28" aria-hidden="true" style="color:#fff"><use href="#bfly"/></svg>
+      <h1>Sugestões de presente</h1>
+      <p>Para facilitar, deixei aqui meus tamanhos e as marcas de que eu mais gosto.</p>
+    </div>
+  </header>
+
+  <div class="gifts-body">
+    <section aria-labelledby="sizes-title">
+      <h2 id="sizes-title">Meus tamanhos</h2>
+      <ul class="sizes">
+        <li><span class="item">Short</span><span class="size">38</span></li>
+        <li><span class="item">Blusa</span><span class="size">P</span></li>
+        <li><span class="item">Vestido</span><span class="size">P</span></li>
+        <li><span class="item">Sandália</span><span class="size">35</span></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="brands-title">
+      <h2 id="brands-title">Marcas que eu amo</h2>
+      <ul class="brands">
+        <li>Melissa</li>
+        <li>L'Occitane</li>
+        <li>Rommanel</li>
+        <li>Farm</li>
+        <li>Vivara</li>
+        <li>Renner</li>
+        <li>Riachuelo</li>
+        <li>Quem Disse, Berenice?</li>
+      </ul>
+    </section>
+
+    <p class="note">São apenas sugestões — a escolha é totalmente sua. Fique à vontade para me presentear como preferir. O mais importante é ter você comigo nesse dia!</p>
+
+    <a class="btn ghost" href="#">Voltar ao convite</a>
+  </div>
+</div>
+
+
+<script>
+(function(){
+  /* ===== AJUSTE AQUI: data e hora da festa (horário de Brasília, -03:00) ===== */
+  var EVENT = new Date('2026-10-24T21:00:00-03:00').getTime();
+
+  function byId(x){ return document.getElementById(x); }
+
+  /* ---------- Flores bordadas (traços como pontos de linha) ---------- */
+  var NS = 'http://www.w3.org/2000/svg';
+  function rng(seed){ var s = seed * 9301 + 49297; return function(){ s = (s * 9301 + 49297) % 233280; return s / 233280; }; }
+  function flower(svg, cx, cy, R, seed){
+    var r = rng(seed), petals = 6 + Math.floor(r()*2), rot = r()*Math.PI*2;
+    var groups = { dark:'', mid:'', light:'', white:'', core:'', gold:'' };
+    function seg(key, a, r0, r1){
+      groups[key] += 'M'+(cx+Math.cos(a)*r0).toFixed(1)+' '+(cy+Math.sin(a)*r0).toFixed(1)+
+                     'L'+(cx+Math.cos(a)*r1).toFixed(1)+' '+(cy+Math.sin(a)*r1).toFixed(1);
+    }
+    var span = Math.PI*2/petals;
+    function pt(a, rad){ return (cx+Math.cos(a)*rad).toFixed(1)+' '+(cy+Math.sin(a)*rad).toFixed(1); }
+    function petal(fill, base, scale, width){
+      var el = document.createElementNS(NS, 'path');
+      el.setAttribute('d', 'M'+pt(base, 0)+
+        'Q'+pt(base-span*width, R*0.75*scale)+' '+pt(base-span*0.18, R*0.98*scale)+
+        'Q'+pt(base, R*1.04*scale)+' '+pt(base+span*0.18, R*0.98*scale)+
+        'Q'+pt(base+span*width, R*0.75*scale)+' '+pt(base, 0)+'Z');
+      el.setAttribute('fill', fill);
+      svg.appendChild(el);
+    }
+    for (var q=0; q<petals; q++){ petal('#FF8DC4', rot+q*span, 1, 0.62); }
+    for (var q2=0; q2<petals; q2++){ petal('#E9328B', rot+q2*span, 0.66, 0.55); }
+    for (var p=0; p<petals; p++){
+      var base = rot + p*span;
+      for (var k=0; k<80; k++){
+        var off = (r()-0.5)*span*0.96;
+        var a = base + off;
+        var edge = R * (0.78 + 0.22*Math.cos(off/span*Math.PI)) * (0.9 + r()*0.12);
+        var r0 = R*(0.16 + r()*0.06);
+        var a1 = r0 + (edge-r0)*(0.35 + r()*0.12);
+        var a2 = r0 + (edge-r0)*(0.68 + r()*0.12);
+        seg('dark', a, r0, a1);
+        seg('mid', a, a1, a2);
+        seg(r() < 0.3 ? 'white' : 'light', a, a2, edge);
+      }
+    }
+    for (var c=0; c<60; c++){
+      var ca = r()*Math.PI*2;
+      seg(r()<0.55 ? 'core' : 'gold', ca, 0, R*(0.1 + r()*0.12));
+    }
+    var colors = { dark:'#A3125A', mid:'#F163A8', light:'#FFACD4', white:'#FFFFFF', core:'#7A0C40', gold:'#F7C948' };
+    var widths = { dark:1, mid:1, light:1.1, white:.9, core:1.2, gold:1.3 };
+    Object.keys(groups).forEach(function(key){
+      var path = document.createElementNS(NS, 'path');
+      path.setAttribute('d', groups[key]);
+      path.setAttribute('stroke', colors[key]);
+      path.setAttribute('stroke-width', widths[key]);
+      path.setAttribute('stroke-linecap', 'round');
+      path.setAttribute('fill', 'none');
+      svg.appendChild(path);
+    });
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('svg[data-flowers]'), function(svg){
+    try { JSON.parse(svg.getAttribute('data-flowers')).forEach(function(f){ flower(svg, f[0], f[1], f[2], f[3]); }); } catch(e){}
+  });
+
+  /* ---------- Calendário ---------- */
+  var grid = byId('cal-grid');
+  var first = new Date(2026, 9, 1).getDay();
+  for (var i=0; i<first; i++){ var e = document.createElement('span'); e.className = 'd'; grid.appendChild(e); }
+  for (var d=1; d<=31; d++){
+    var cell = document.createElement('span');
+    cell.className = 'd' + (d === 24 ? ' party' : '');
+    if (d === 24){ var s = document.createElement('span'); s.textContent = d; cell.appendChild(s); cell.setAttribute('aria-label','24 de outubro, dia da festa'); }
+    else { cell.textContent = d; }
+    grid.appendChild(cell);
+  }
+
+  /* ---------- Contagem regressiva (a cada segundo) ---------- */
+  var el = { d:byId('cd-d'), h:byId('cd-h'), m:byId('cd-m'), s:byId('cd-s') };
+  function pad(n){ return n < 10 ? '0' + n : '' + n; }
+  var lastDays = null, timer;
+  function tick(){
+    var diff = EVENT - Date.now();
+    if (diff <= 0){ byId('cd-units').hidden = true; byId('cd-title').hidden = true; byId('cd-done').hidden = false; clearInterval(timer); return; }
+    var t = Math.floor(diff/1000), days = Math.floor(t/86400);
+    el.d.textContent = days;
+    el.h.textContent = pad(Math.floor((t%86400)/3600));
+    el.m.textContent = pad(Math.floor((t%3600)/60));
+    el.s.textContent = pad(t%60);
+    if (days !== lastDays){ byId('cd-sr').textContent = 'Faltam ' + days + ' dias para a festa.'; lastDays = days; }
+  }
+  tick(); timer = setInterval(tick, 1000);
+
+  /* ---------- Slides na horizontal ---------- */
+  var track = byId('track'), slides = track.querySelectorAll('.slide'), dotsWrap = byId('dots');
+  var prevBtn = byId('prev'), nextBtn = byId('next'), current = 0;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  Array.prototype.forEach.call(slides, function(sl, i){
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', 'Ir para: ' + sl.getAttribute('aria-label'));
+    b.addEventListener('click', function(){ go(i); });
+    dotsWrap.appendChild(b);
+  });
+  var dots = dotsWrap.querySelectorAll('button');
+  function go(i){
+    i = Math.max(0, Math.min(slides.length - 1, i));
+    track.scrollTo({ left: i * track.clientWidth, behavior: reduce ? 'auto' : 'smooth' });
+  }
+  function sync(){
+    var i = Math.round(track.scrollLeft / track.clientWidth);
+    if (i === current && dots[i].getAttribute('aria-current')) return;
+    current = i;
+    Array.prototype.forEach.call(dots, function(d, k){
+      if (k === i) d.setAttribute('aria-current', 'true'); else d.removeAttribute('aria-current');
+    });
+    prevBtn.hidden = i === 0;
+    nextBtn.hidden = i === slides.length - 1;
+    document.body.classList.toggle('on-hero', i === 0 || i === slides.length - 1);
+  }
+  var raf;
+  track.addEventListener('scroll', function(){ cancelAnimationFrame(raf); raf = requestAnimationFrame(sync); }, { passive: true });
+  prevBtn.addEventListener('click', function(){ go(current - 1); });
+  nextBtn.addEventListener('click', function(){ go(current + 1); });
+  document.addEventListener('keydown', function(e){
+    if (!presentes.hidden) return;
+    if (e.key === 'ArrowRight' || e.key === 'PageDown') { e.preventDefault(); go(current + 1); }
+    if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); go(current - 1); }
+  });
+  window.addEventListener('resize', function(){ track.scrollLeft = current * track.clientWidth; });
+
+  /* ---------- Navegação: convite <-> sugestões de presente ---------- */
+  var convite = byId('convite'), presentes = byId('presentes-page'), savedSlide = 0;
+  function route(){
+    var gifts = location.hash === '#presentes';
+    if (gifts){ savedSlide = current; }
+    convite.hidden = gifts;
+    presentes.hidden = !gifts;
+    document.body.classList.toggle('gifts-open', gifts);
+    document.title = gifts ? 'Sugestões de presente · Clara 15 anos' : 'Clara Luiza Pestana · 15 anos — 24.10.26';
+    if (gifts){ window.scrollTo(0, 0); }
+    else { track.scrollLeft = savedSlide * track.clientWidth; sync(); }
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('#presentes-page a[href="#"]'), function(a){
+    a.addEventListener('click', function(ev){ ev.preventDefault(); history.pushState('', document.title, location.pathname + location.search); route(); });
+  });
+  window.addEventListener('hashchange', route);
+  window.addEventListener('popstate', route);
+  route();
+  sync();
+  byId('start').addEventListener('click', function(){ go(1); });
+})();
+</script>
+</body>
+</html>
