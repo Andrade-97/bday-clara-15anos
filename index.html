@@ -75,7 +75,8 @@ body.gifts-open .nav-arrow,body.gifts-open .dots{display:none}
 .save{border:1px solid rgba(255,255,255,.9);padding:14px 22px 12px;font-family:var(--serif);line-height:1.15}
 .save .words{font-size:clamp(1.2rem,3.2vh,1.7rem);letter-spacing:.42em;margin-right:-.42em}
 .save hr{border:0;border-top:1px solid rgba(255,255,255,.7);margin:10px 0 8px}
-.save .date{font-size:clamp(1.2rem,3.1vh,1.65rem);letter-spacing:.12em}
+.save .date{font-size:clamp(1.5rem,3.8vh,2rem);letter-spacing:.12em}
+.save .when{margin-top:6px;font-family:var(--sans);font-size:clamp(.75rem,1.7vh,.9rem);letter-spacing:.18em}
 .swipe-hint{display:inline-flex;align-items:center;gap:6px;font-size:.85rem;letter-spacing:.08em;opacity:.95;background:transparent;border:1px solid rgba(255,255,255,.7);color:#fff;border-radius:999px;padding:7px 14px;cursor:pointer;font-family:var(--sans)}
 @media (prefers-reduced-motion: no-preference){
   .swipe-hint svg{animation:nudge 1.6s ease-in-out infinite}
@@ -92,7 +93,9 @@ body.gifts-open .nav-arrow,body.gifts-open .dots{display:none}
 .closing .monogram{width:100px}
 .closing .sig{font-family:var(--serif);font-size:.85rem;letter-spacing:.3em;margin-right:-.3em}
 .closing p{margin:0;max-width:26ch;font-size:1rem}
-.btn.light{background:#fff;color:var(--hero-side)}
+.btn.light{background:#fff;color:#B01E69;margin-top:4px;padding:0 20px;white-space:nowrap;font-size:.95rem;gap:8px}
+.closing .rsvp-note{margin-top:8px;font-size:.95rem}
+.slide .card.solo{padding:40px 24px}
 
 /* ================= Blocos ================= */
 .script-title{margin:0;text-align:center;font-family:var(--script);font-weight:400;font-size:2.8rem;line-height:1.05;color:var(--accent)}
@@ -214,9 +217,8 @@ body.gifts-open .nav-arrow,body.gifts-open .dots{display:none}
       <h1><span class="first">CLARA</span><span class="last">LUIZA PESTANA</span></h1>
       <svg class="bfly" viewBox="0 0 34 28" aria-hidden="true"><use href="#bfly"/></svg>
       <div class="save">
-        <div class="words">SAVE<br>THE<br>DATE</div>
-        <hr>
         <div class="date">24.10.26</div>
+        <div class="when">Sábado · 21h</div>
       </div>
       <button class="swipe-hint" type="button" id="start">Deslize para abrir
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
@@ -342,22 +344,14 @@ body.gifts-open .nav-arrow,body.gifts-open .dots{display:none}
     </div>
   </section>
 
-  <!-- 8 · Presentes e confirmação -->
-  <section class="slide" aria-label="Presentes e confirmação">
+  <!-- 8 · Presentes -->
+  <section class="slide" aria-label="Presentes">
     <div class="inner">
-      <div class="card">
+      <h2 class="script-title">Presentes</h2>
+      <div class="card solo">
         <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="9" width="18" height="12"/><path d="M2 9h20M12 9v12"/><path d="M12 9C9 3 5 5 7.5 8.5M12 9c3-6 7-4 4.5-.5"/></svg></div>
-        <h3>Presentes</h3>
         <p>Sua presença é o meu maior presente. Se quiser me presentear, deixei algumas sugestões.</p>
-        <a class="btn ghost" href="#presentes">Ver sugestões de presente</a>
-      </div>
-      <div class="rsvp" aria-labelledby="rsvp-title">
-        <h2 id="rsvp-title">Confirme sua presença</h2>
-        <p>Por favor, confirme até <strong>10/10/2026</strong>.</p>
-        <a class="btn" href="https://forms.gle/vgskUqJnVFgaKHqY8" target="_blank" rel="noopener">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-4 3-7 7-7s7 3 7 7"/><path d="M16 12l2 2 4-4"/></svg>
-          Confirmar presença
-        </a>
+        <a class="btn" href="#presentes">Ver sugestões de presente</a>
       </div>
     </div>
   </section>
@@ -372,7 +366,11 @@ body.gifts-open .nav-arrow,body.gifts-open .dots{display:none}
       <svg class="monogram" viewBox="0 0 200 210" role="img" aria-label="Monograma CLP"><use href="#clp"/></svg>
       <div class="sig">CLARA LUIZA PESTANA</div>
       <p>24.10.26 · 21h</p>
-      <a class="btn light" href="https://forms.gle/vgskUqJnVFgaKHqY8" target="_blank" rel="noopener">Confirmar presença</a>
+      <p class="rsvp-note">Confirme sua presença até <strong>10/10/2026</strong></p>
+      <a class="btn light" href="https://forms.gle/vgskUqJnVFgaKHqY8" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-4 3-7 7-7s7 3 7 7"/><path d="M16 12l2 2 4-4"/></svg>
+        Confirmar presença
+      </a>
     </div>
   </section>
 
