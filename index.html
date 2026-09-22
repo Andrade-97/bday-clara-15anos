@@ -347,6 +347,17 @@ body.gifts-open .nav-arrow,body.gifts-open .dots{display:none}
 .cover .env-text em{font-style:italic;font-weight:400}
 .cover .env-foot{position:absolute;left:0;width:100vw;text-align:center;font-family:var(--serif);font-weight:500;color:#9C4A56;letter-spacing:.3em}
 .cover-hint{font-family:var(--sans)!important;font-size:.72rem!important;letter-spacing:.18em;text-transform:uppercase;color:#9C8083!important;bottom:auto!important}
+
+/* ===== Música ===== */
+.sound-btn{position:fixed;z-index:30;top:calc(12px + env(safe-area-inset-top,0px));right:calc(12px + env(safe-area-inset-right,0px));width:42px;height:42px;border-radius:50%;border:0;
+  background:rgba(255,255,255,.88);color:#9C4A56;display:grid;place-items:center;cursor:pointer;box-shadow:0 2px 10px rgba(80,30,40,.18)}
+.sound-btn .ic-off{display:none}
+.sound-btn.muted .ic-on{display:none}
+.sound-btn.muted .ic-off{display:block}
+@media (prefers-reduced-motion: no-preference){
+  .sound-btn.playing::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1.5px solid rgba(156,74,86,.35);animation:sPulse 2.4s ease-out infinite}
+  @keyframes sPulse{0%{transform:scale(.9);opacity:.9}100%{transform:scale(1.25);opacity:0}}
+}
 </style>
 </head>
 <body>
@@ -413,6 +424,11 @@ body.gifts-open .nav-arrow,body.gifts-open .dots{display:none}
   <p class="cover-hint">Toque no selo para abrir</p>
 </div>
 
+<audio id="bgm" src="musica.mp3" preload="auto" loop playsinline></audio>
+<button class="sound-btn" id="soundBtn" type="button" aria-label="Ligar música" aria-pressed="false" hidden>
+  <svg class="ic-on" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg>
+  <svg class="ic-off" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M17 9l5 6M22 9l-5 6"/></svg>
+</button>
 <div id="convite">
 <main class="track" id="track" tabindex="-1">
 
@@ -894,15 +910,51 @@ body.gifts-open .nav-arrow,body.gifts-open .dots{display:none}
     layoutCover();
     window.addEventListener('resize', layoutCover);
     var opened = false;
+
+  /* ---------- Música de fundo ---------- */
+  var bgm = byId('bgm'), soundBtn = byId('soundBtn'), wantMusic = false, fadeT = null;
+  var TARGET_VOL = 0.7;
+  function setBtn(){
+    var playing = !bgm.paused;
+    soundBtn.classList.toggle('muted', !playing);
+    soundBtn.classList.toggle('playing', playing);
+    soundBtn.setAttribute('aria-pressed', playing ? 'true' : 'false');
+    soundBtn.setAttribute('aria-label', playing ? 'Desligar música' : 'Ligar música');
+  }
+  function fadeTo(v, ms, done){
+    clearInterval(fadeT);
+    var start = bgm.volume, t0 = Date.now();
+    fadeT = setInterval(function(){
+      var k = Math.min(1, (Date.now() - t0) / ms);
+      try { bgm.volume = start + (v - start) * k; } catch(e){}
+      if (k >= 1){ clearInterval(fadeT); if (done) done(); }
+    }, 50);
+  }
+  function playMusic(){
+    wantMusic = true;
+    try { bgm.volume = 0; } catch(e){}
+    var pr = bgm.play();
+    if (pr && pr.then){ pr.then(function(){ fadeTo(TARGET_VOL, 2500); setBtn(); }).catch(function(){ wantMusic = false; setBtn(); }); }
+    else { fadeTo(TARGET_VOL, 2500); }
+    setBtn();
+  }
+  function stopMusic(){ wantMusic = false; fadeTo(0, 400, function(){ bgm.pause(); setBtn(); }); }
+  soundBtn.addEventListener('click', function(e){ e.stopPropagation(); if (bgm.paused) playMusic(); else stopMusic(); });
+  bgm.addEventListener('play', setBtn); bgm.addEventListener('pause', setBtn);
+  document.addEventListener('visibilitychange', function(){
+    if (document.hidden){ if (!bgm.paused) bgm.pause(); }
+    else if (wantMusic){ var pr = bgm.play(); if (pr && pr.catch) pr.catch(function(){}); }
+  });
     var openCover = function(){
       if (opened) return; opened = true;
+      playMusic();
       cover.classList.add('tap');
       setTimeout(function(){ cover.classList.add('open'); }, 260);
-      setTimeout(function(){ cover.hidden = true; track.focus({preventScroll:true}); }, 1700);
+      setTimeout(function(){ cover.hidden = true; soundBtn.hidden = false; track.focus({preventScroll:true}); }, 1700);
     };
     cover.addEventListener('click', openCover);
     cover.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openCover(); } });
-    if (location.hash === '#presentes'){ cover.hidden = true; opened = true; }
+    if (location.hash === '#presentes'){ cover.hidden = true; opened = true; soundBtn.hidden = false; setBtn(); }
   }
 
   sync();
