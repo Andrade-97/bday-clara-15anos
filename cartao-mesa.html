@@ -2319,8 +2319,11 @@ html,body{margin:0;background:#E9E4E1 !important;color:#3A1A2A !important;font-f
 .urlrow input{flex:1;min-width:0;min-height:44px;padding:0 14px;border-radius:10px;border:1px solid #d9c9cf;font:400 .95rem 'Jost',sans-serif;color:#3A1A2A;background:#fff}
 .toolbar button{min-height:44px;padding:0 22px;border-radius:999px;border:0;background:#C93764;color:#fff;font:500 1rem 'Jost',sans-serif;cursor:pointer;white-space:nowrap}
 .warn{color:#B82F5A !important;font-weight:500}
-.sheet{width:210mm;height:297mm;margin:16px auto;background:#fff;display:grid;grid-template-columns:105mm 105mm;grid-template-rows:148.5mm 148.5mm;box-shadow:0 4px 20px rgba(0,0,0,.12)}
-.card{position:relative;overflow:hidden;background:#F7F4F1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:12mm 10mm;
+.sheet{width:210mm;height:297mm;margin:16px auto;background:#fff;display:grid;grid-template-columns:100mm 100mm;grid-template-rows:150mm;justify-content:center;align-content:center;box-shadow:0 4px 20px rgba(0,0,0,.12)}
+body.single .sheet{width:100mm;height:150mm;grid-template-columns:100mm;margin:0;box-shadow:none}
+body.single .card{outline:0}
+body.single .toolbar{display:none}
+.card{position:relative;overflow:hidden;background:#F7F4F1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:12mm 9mm;width:100mm;height:150mm;
   outline:0.2mm dashed #cfc6c9;outline-offset:-0.1mm}
 .card::before{content:"";position:absolute;inset:5mm;border:0.35mm solid #E3B3C3;border-radius:3mm;pointer-events:none}
 .card .s1{position:absolute;left:2.5mm;bottom:2.5mm;height:17mm}
@@ -2343,7 +2346,7 @@ html,body{margin:0;background:#E9E4E1 !important;color:#3A1A2A !important;font-f
 </head>
 <body>
 <div class="toolbar">
-  <p id="info">O QR Code aponta para o link abaixo. Confira se é o link da câmera no seu GitHub (terminando em <b>/moldura.html</b>) e clique em <b>Imprimir / Salvar PDF</b>. São 4 cartões A6 por folha A4.</p>
+  <p id="info">O QR Code aponta para o link abaixo. Confira se é o link da câmera no seu GitHub (terminando em <b>/moldura.html</b>) e clique em <b>Imprimir / Salvar PDF</b>. Cartões no tamanho <b>10 × 15 cm</b>, 2 por folha A4 (recorte na linha pontilhada).</p>
   <div class="urlrow">
     <input id="url" type="url" inputmode="url" aria-label="Link da página da câmera" placeholder="https://seuusuario.github.io/bday-clara-15anos/moldura.html">
     <button type="button" onclick="window.print()">Imprimir / Salvar PDF</button>
@@ -2375,8 +2378,10 @@ html,body{margin:0;background:#E9E4E1 !important;color:#3A1A2A !important;font-f
 <script>
 (function(){
   var sheet = document.getElementById('sheet'), tpl = document.getElementById('tpl'), input = document.getElementById('url'), info = document.getElementById('info');
-  for (var i = 0; i < 4; i++) sheet.appendChild(tpl.content.cloneNode(true));
   var params = new URLSearchParams(location.search);
+  var single = params.get('formato') === '10x15';
+  if (single) document.body.classList.add('single');
+  for (var i = 0; i < (single ? 1 : 2); i++) sheet.appendChild(tpl.content.cloneNode(true));
   var start = params.get('url') || (location.protocol.indexOf('http') === 0 ? new URL('moldura.html', location.href).href : '');
   input.value = start;
   if (!start){
